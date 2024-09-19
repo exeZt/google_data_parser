@@ -1,0 +1,22 @@
+{
+  "name": "google_sheets_parser",
+  "version": "1.0.0",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0",
+    "yaml": "^2.5.1",
+    "yarn": "^1.22.22"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "npx ts-node src/utils.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "@types/xmlhttprequest": "^1.8.2",
+    "node": "^22.9.0"
+  }
+}
