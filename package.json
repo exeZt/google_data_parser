@@ -1,22 +1,20 @@
 {
-  "name": "google_sheets_parser",
-  "version": "1.0.0",
-  "dependencies": {
-    "xmlhttprequest": "^1.8.0",
-    "yaml": "^2.5.1",
-    "yarn": "^1.22.22"
-  },
-  "main": "index.js",
+  "name": "@exezt-/google_sheets_parser",
+  "version": "1.1.0",
+  "dependencies": {},
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["/dist"],
   "scripts": {
-    "test": "npx ts-node src/utils.ts"
+    "build": "npx tsc",
+    "test": "npx ts-node src/index.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "exezt-",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "@types/node": "^22.5.5",
-    "@types/xmlhttprequest": "^1.8.2",
     "node": "^22.9.0"
   }
 }

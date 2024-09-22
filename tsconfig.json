@@ -2,10 +2,17 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2016",
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "declaration": true,
+    "strict": true,
+    "outDir": "./dist",
+    "esModuleInterop": true
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".idea",
+    "google_sheets_parser.iml",
   ]
 }
