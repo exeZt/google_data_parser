@@ -1,6 +1,13 @@
 ## Typescript library to parse default googleSheetsApiResponse
 Makes get any data from google sheets faster & easier
 
+## Download
+
+```bash
+npm i --save-dev @exezt-/google_sheets_parser
+```
+
+
 ## Usage
 Let's say we have a table in Google Sheets that needs to be converted to json format
 
