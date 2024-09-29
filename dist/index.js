@@ -38,7 +38,6 @@ class SheetsParser extends Net {
             let result = {
                 table: {}
             };
-            // TODO: change any type to normal
             try {
                 val.table.rows.forEach((value, index) => {
                     // @ts-ignore
@@ -52,6 +51,12 @@ class SheetsParser extends Net {
             }
             return result;
         };
+        this.fetchData = (fetchParams, callback) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
+            yield this.getDataXHR(fetchParams.sheetName, fetchParams.sheetId, (_a = fetchParams.query) !== null && _a !== void 0 ? _a : "Select *", (stringData) => {
+                callback(JSON.parse(stringData));
+            });
+        });
         this.parseWithFetch = (fetchParams, callback) => __awaiter(this, void 0, void 0, function* () {
             var _a;
             yield this.getDataXHR(fetchParams.sheetName, fetchParams.sheetId, (_a = fetchParams.query) !== null && _a !== void 0 ? _a : "Select *", (strVal) => {

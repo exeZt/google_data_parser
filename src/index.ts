@@ -5,7 +5,7 @@ export type FetchParams = {
 }
 
 class Net {
-  async getDataXHR(sheetName: string, sheetId: string, queryToList: string, callback: (stringData: string) => void): Promise<void> {
+  async getDataXHR(sheetName: string, sheetId: string, queryToList: string, callback: (data: string) => void): Promise<void> {
     let base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
     let qRea = encodeURIComponent(queryToList);
     let qUri = `${base}&sheet=${sheetName}&tq=${qRea}`;
@@ -20,7 +20,7 @@ export class SheetsParser extends Net {
     try {
       return JSON.parse(str);
     }catch (e) {
-      console.log('Failed convert string to json')
+      console.log('Failed convert string to json');
       return {};
     }
   }
@@ -29,23 +29,28 @@ export class SheetsParser extends Net {
     let result = {
       table: {}
     }
-    // TODO: change any type to normal
     try {
       val.table.rows.forEach((value: any, index: string | number) => {
         // @ts-ignore
-        result.table[`row_${index}`] = []
+        result.table[`row_${index}`] = [];
         // @ts-ignore
-        result.table[`row_${index}`] = val.table.rows[index].c.map((vl) => vl?.v ?? "null")
+        result.table[`row_${index}`] = val.table.rows[index].c.map((vl) => vl?.v ?? "null");
       });
     }catch (e) {
-      console.error('Value cant be parsed to ResponseObject')
+      console.error('Value cant be parsed to ResponseObject');
     }
     return result;
   }
 
+  fetchData = async (fetchParams: FetchParams, callback: (str: object) => void): Promise<void> => {
+    await this.getDataXHR(fetchParams.sheetName, fetchParams.sheetId, fetchParams.query??"Select *", (stringData: string) => {
+      callback(JSON.parse(stringData))
+    });
+  };
+
   parseWithFetch = async (fetchParams: FetchParams, callback: (stringData: object) => void): Promise<void> => {
     await this.getDataXHR(fetchParams.sheetName, fetchParams.sheetId, fetchParams.query??"Select *", (strVal: string) => {
       callback(this.parseToObject(JSON.parse(strVal)));
-    })
-  }
+    });
+  };
 }

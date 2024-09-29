@@ -1,7 +1,8 @@
 {
   "name": "@exezt-/google_sheets_parser",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "dependencies": {},
+  "description": "Google sheets parser for nodeJS/TS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["/dist"],
@@ -9,10 +10,30 @@
     "build": "npx tsc",
     "test": "npx ts-node src/index.ts"
   },
-  "keywords": [],
+  "repository": "exeZt/google_data_parser",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "keywords": [
+    "google-sheets",
+    "google sheets",
+    "parser",
+    "parse google sheets",
+    "parse",
+    "sheets",
+    "sheet"
+  ],
   "author": "exezt-",
   "license": "MIT",
-  "description": "",
   "devDependencies": {
     "@types/node": "^22.5.5",
     "node": "^22.9.0"
